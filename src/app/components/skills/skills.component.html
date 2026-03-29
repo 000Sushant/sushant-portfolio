@@ -1,0 +1,27 @@
+<section id="skills" class="skills-section">
+  <div class="bg-glow"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Expertise</span>
+      <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+      <p class="section-desc">A curated toolkit of technologies I work with to build reliable, scalable systems.</p>
+    </div>
+
+    <div class="categories-grid" [@fadeInUp]>
+      <div class="category-card" *ngFor="let cat of categories" [style.--cat-color]="cat.color">
+        <div class="category-header">
+          <div class="cat-icon-wrap" [style.background]="cat.color + '18'" [style.border-color]="cat.color + '33'">
+            <i [class]="cat.icon" [style.color]="cat.color"></i>
+          </div>
+          <h3 class="cat-label">{{ cat.label }}</h3>
+        </div>
+        <div class="skills-list">
+          <div class="skill-chip" *ngFor="let skill of cat.skills" [style.--skill-color]="skill.color">
+            <i [class]="skill.icon"></i>
+            <span>{{ skill.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

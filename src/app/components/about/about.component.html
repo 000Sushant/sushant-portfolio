@@ -1,0 +1,110 @@
+<section id="about" class="hero grid-bg">
+  <!-- Floating Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="container">
+    <div class="hero-inner">
+      <!-- Left Content -->
+      <div class="hero-content" [@heroEntrance]>
+        <div class="available-badge">
+          <span class="pulse-dot"></span>
+          Available for opportunities
+        </div>
+
+        <h1 class="hero-heading">
+          Hi, I'm <br>
+          <span class="gradient-text">Sushant Kumar</span>
+        </h1>
+
+        <div class="role-line">
+          <span class="role-prefix">I build </span>
+          <span class="role-text" [class.fading]="isRoleFading">{{ currentRole }}</span>
+          <span class="cursor-bar">|</span>
+        </div>
+
+        <p class="hero-bio">
+          <strong>Application Development Engineer</strong> at <span class="company-name">Signify</span> —
+          crafting scalable Node.js systems, cloud-native architectures, and robust APIs.
+          Passionate about clean code, DX, and elegant engineering.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fa-solid fa-rocket"></i> View My Work
+          </a>
+          <a href="assets/resume.pdf" class="btn btn-outline" target="_blank">
+            <i class="fa-solid fa-file-arrow-down"></i> Resume
+          </a>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tech-stack">
+          <span class="stack-label">Stack :</span>
+          <div class="stack-icons">
+            <div
+              class="stack-icon"
+              *ngFor="let t of techStack"
+              [title]="t.name"
+              [style.--icon-color]="t.color">
+              <i [class]="t.icon"></i>
+              <span class="stack-tooltip">{{ t.name }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Decorative -->
+      <div class="hero-visual" [@fadeInUp]>
+        <div class="avatar-ring">
+          <div class="avatar-inner">
+            <i class="fa-solid fa-code avatar-icon"></i>
+          </div>
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="orbit-dot dot-1"><i class="fa-brands fa-node-js"></i></div>
+          <div class="orbit-dot dot-2"><i class="fa-brands fa-angular"></i></div>
+          <div class="orbit-dot dot-3"><i class="fa-brands fa-aws"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row" [@fadeInUp]>
+      <div class="stat-card" *ngFor="let s of stats">
+        <i [class]="s.icon + ' stat-icon'"></i>
+        <span class="stat-value">{{ s.value }}</span>
+        <span class="stat-label">{{ s.label }}</span>
+      </div>
+    </div>
+
+    <!-- Experience Timeline -->
+    <div class="experience-section" [@fadeInUp]>
+      <div class="exp-header">
+        <span class="section-label">Career</span>
+        <h3 class="exp-title">Work <span class="gradient-text">Experience</span></h3>
+      </div>
+
+      <div class="exp-timeline">
+        <div class="exp-card" *ngFor="let e of experience; let last = last" [style.--exp-color]="e.color">
+          <div class="exp-left">
+            <div class="exp-dot"></div>
+            <div class="exp-connector" *ngIf="!last"></div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-meta">
+              <span class="exp-type" [style.color]="e.color" [style.border-color]="e.color + '44'" [style.background]="e.color + '12'">{{ e.type }}</span>
+              <span class="exp-period"><i class="fa-regular fa-calendar"></i> {{ e.period }}</span>
+            </div>
+            <h4 class="exp-role">{{ e.role }}</h4>
+            <div class="exp-company"><i class="fa-solid fa-building"></i> {{ e.company }}</div>
+            <ul class="exp-highlights">
+              <li *ngFor="let h of e.highlights">{{ h }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

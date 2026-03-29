@@ -1,0 +1,42 @@
+<section id="projects" class="projects-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Portfolio</span>
+      <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+      <p class="section-desc">A selection of innovative things I've built to contribute to organizational and personal growth.</p>
+    </div>
+
+    <div class="projects-grid" [@fadeInUp]>
+      <div class="project-card" *ngFor="let p of projects" [style.--project-color]="p.color">
+        <div class="card-top-bar"></div>
+
+        <div class="card-icon" [style.background]="p.color + '18'" [style.border-color]="p.color + '33'">
+          <i [class]="p.icon" [style.color]="p.color"></i>
+        </div>
+
+        <h3 class="card-title">{{ p.title }}</h3>
+        <p class="card-desc">{{ p.description }}</p>
+
+        <div class="card-tags">
+          <span class="tag" *ngFor="let tag of p.tags">{{ tag }}</span>
+        </div>
+
+        <div class="card-links">
+          <ng-container *ngIf="p.github || p.link; else privateBadge">
+            <a *ngIf="p.github" [href]="p.github" class="card-link" target="_blank">
+              <i class="fa-brands fa-github"></i> Code
+            </a>
+            <a *ngIf="p.link" [href]="p.link" class="card-link card-link--primary" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+            </a>
+          </ng-container>
+          <ng-template #privateBadge>
+            <span class="card-link card-link--private">
+              <i class="fa-solid fa-lock"></i> Internal / Private
+            </span>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

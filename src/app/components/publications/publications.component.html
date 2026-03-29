@@ -1,0 +1,40 @@
+<section id="publications" class="pub-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Research</span>
+      <h2 class="section-title">My <span class="gradient-text">Publications</span></h2>
+      <p class="section-desc">Peer-reviewed research and conference papers on software engineering topics.</p>
+    </div>
+
+    <div class="pub-list" [@fadeInUp]>
+      <div class="pub-card" *ngFor="let pub of publications; let i = index" [style.--pub-color]="pub.color">
+        <div class="pub-left">
+          <div class="pub-icon">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <div class="pub-line" *ngIf="i < publications.length - 1"></div>
+        </div>
+
+        <div class="pub-body">
+          <div class="pub-meta">
+            <span class="pub-type" [style.color]="pub.color" [style.border-color]="pub.color + '44'" [style.background]="pub.color + '12'">
+              <i class="fa-solid fa-tag"></i> {{ pub.type }}
+            </span>
+            <span class="pub-year">
+              <i class="fa-regular fa-calendar"></i> {{ pub.year }}
+            </span>
+          </div>
+
+          <h3 class="pub-title">{{ pub.title }}</h3>
+          <p class="pub-venue">
+            <i class="fa-solid fa-building-columns"></i> {{ pub.venue }}
+          </p>
+
+          <a [href]="pub.link" class="pub-link" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Read Paper
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <div class="container">
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <span class="logo-bracket">&lt;</span>
+      <span class="logo-name">Sushant Kumar</span>
+      <span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav" [class.open]="menuOpen">
+      <a *ngFor="let link of navLinks" href="javascript:void(0)" class="nav-link" (click)="scrollTo(link.href)">
+        {{ link.label }}
+      </a>
+      <a href="javascript:void(0)" class="btn btn-primary nav-cta" (click)="scrollTo('#contact')">
+        <i class="fa-solid fa-paper-plane"></i> Hire Me
+      </a>
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
