@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 8080",
     "build": "ng build",
+    "build:prod": "ng build --configuration production && cp -r ./dist/sushant-portfolio/browser/* ./docs",
     "watch": "ng build --watch --configuration development",
+    "clean": "rm -rf ./dist ./docs && mkdir ./docs",
     "test": "ng test"
   },
   "private": true,

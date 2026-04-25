@@ -21,13 +21,11 @@
         <div class="role-line">
           <span class="role-prefix">I build </span>
           <span class="role-text" [class.fading]="isRoleFading">{{ currentRole }}</span>
-          <span class="cursor-bar">|</span>
         </div>
 
         <p class="hero-bio">
           <strong>Application Development Engineer</strong> at <span class="company-name">Signify</span> —
-          crafting scalable Node.js systems, cloud-native architectures, and robust APIs.
-          Passionate about clean code, DX, and elegant engineering.
+          crafting scalable Node.js systems and robust APIs. Proficient in integrating <strong>GenAI, Agentic tools, and LLMs</strong> to optimize development and propose innovative, automated solutions.
         </p>
 
         <div class="hero-actions">
@@ -43,11 +41,7 @@
         <div class="tech-stack">
           <span class="stack-label">Stack :</span>
           <div class="stack-icons">
-            <div
-              class="stack-icon"
-              *ngFor="let t of techStack"
-              [title]="t.name"
-              [style.--icon-color]="t.color">
+            <div class="stack-icon" *ngFor="let t of techStack" [title]="t.name" [style.--icon-color]="t.color">
               <i [class]="t.icon"></i>
               <span class="stack-tooltip">{{ t.name }}</span>
             </div>
@@ -59,7 +53,7 @@
       <div class="hero-visual" [@fadeInUp]>
         <div class="avatar-ring">
           <div class="avatar-inner">
-            <i class="fa-solid fa-code avatar-icon"></i>
+            <img src="assets/profile-photo.png" alt="Sushant Kumar" class="profile-photo">
           </div>
           <div class="ring ring-1"></div>
           <div class="ring ring-2"></div>
@@ -94,7 +88,8 @@
           </div>
           <div class="exp-body">
             <div class="exp-meta">
-              <span class="exp-type" [style.color]="e.color" [style.border-color]="e.color + '44'" [style.background]="e.color + '12'">{{ e.type }}</span>
+              <span class="exp-type" [style.color]="e.color" [style.border-color]="e.color + '44'"
+                [style.background]="e.color + '12'">{{ e.type }}</span>
               <span class="exp-period"><i class="fa-regular fa-calendar"></i> {{ e.period }}</span>
             </div>
             <h4 class="exp-role">{{ e.role }}</h4>

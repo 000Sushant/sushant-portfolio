@@ -13,7 +13,7 @@ import { heroEntrance, fadeInUp } from '../../animation';
 export class AboutComponent implements OnInit, OnDestroy {
   private interval: any;
 
-  roles = ['APIs', 'Workers', 'Cloud Architecture', 'Automation System'];
+  roles = ['APIs', 'Workers', 'Databases', 'Web Applications', 'MCP Server', 'AI Integrations'];
   currentRoleIndex = 0;
   currentRole = this.roles[0];
   isRoleFading = false;
@@ -37,6 +37,7 @@ export class AboutComponent implements OnInit, OnDestroy {
         'Designed and implemented scalable APIs and backend services using Node.js and TypeScript.',
         'Developed and automated worker processes to enhance system reliability and scalability.',
         'Automated API workflows and testing to improve efficiency and reduce manual effort.',
+        'Integrated GenAI, Agentic tools, and LLMs to optimize development pipelines and architect innovative solutions.',
       ]
     },
     {
