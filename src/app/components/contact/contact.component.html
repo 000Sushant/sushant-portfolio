@@ -47,24 +47,11 @@
               <div class="info-value">000sushantkumar&#64;gmail.com</div>
             </div>
           </div>
-          <div class="info-item">
-            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-            <div>
-              <div class="info-label">Phone</div>
-              <div class="info-value">+91 9064005890</div>
-            </div>
-          </div>
         </div>
 
         <div class="socials">
-          <a
-            *ngFor="let s of socials"
-            [href]="s.href"
-            class="social-btn"
-            target="_blank"
-            [title]="s.label"
-            [style.--social-color]="s.color"
-          >
+          <a *ngFor="let s of socials" [href]="s.href" class="social-btn" target="_blank" [title]="s.label"
+            [style.--social-color]="s.color">
             <i [class]="s.icon"></i>
             <span>{{ s.label }}</span>
           </a>
@@ -75,53 +62,27 @@
       <div class="contact-form-wrap">
         <div class="success-msg" *ngIf="submitted">
           <i class="fa-solid fa-circle-check"></i>
-          <span
-            >Your email client has been opened with the message pre-filled. Hit
-            send to deliver it!</span
-          >
+          <span>Your email client has been opened with the message pre-filled. Hit
+            send to deliver it!</span>
         </div>
 
         <form (submit)="submitForm()" *ngIf="!submitted">
           <div class="form-group">
-            <label class="form-label"
-              ><i class="fa-solid fa-user"></i> Full Name</label
-            >
-            <input
-              class="form-input"
-              type="text"
-              placeholder="Sushant Kumar"
-              [(ngModel)]="name"
-              name="name"
-              required
-            />
+            <label class="form-label"><i class="fa-solid fa-user"></i> Full Name</label>
+            <input class="form-input" type="text" placeholder="Sushant Kumar" [(ngModel)]="name" name="name" required />
           </div>
 
           <div class="form-group">
-            <label class="form-label"
-              ><i class="fa-solid fa-envelope"></i> Email Address</label
-            >
-            <input
-              class="form-input"
-              type="email"
-              placeholder="hello&#64;example.com"
-              [(ngModel)]="email"
-              name="email"
-              required
-            />
+            <label class="form-label"><i class="fa-solid fa-envelope"></i> Email Address</label>
+            <input class="form-input" type="email" placeholder="hello&#64;example.com" [(ngModel)]="email" name="email"
+              required />
           </div>
 
           <div class="form-group">
-            <label class="form-label"
-              ><i class="fa-solid fa-comment-dots"></i> Message</label
-            >
-            <textarea
-              class="form-input form-textarea"
-              rows="5"
-              placeholder="Hi Sushant, we have an opening for a Backend Engineer at..."
-              [(ngModel)]="message"
-              name="message"
-              required
-            ></textarea>
+            <label class="form-label"><i class="fa-solid fa-comment-dots"></i> Message</label>
+            <textarea class="form-input form-textarea" rows="5"
+              placeholder="Hi Sushant, we have an opening for a Backend Engineer at..." [(ngModel)]="message"
+              name="message" required></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary submit-btn">

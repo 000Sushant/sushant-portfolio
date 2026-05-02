@@ -13,13 +13,22 @@ import { fadeInUp } from '../../animation';
 export class ProjectsComponent {
   projects = [
     {
-      title: 'Portfolio Website',
-      description: 'Modern Angular 18 portfolio with glassmorphism, dark theme, CSS animations, and component-driven architecture.',
-      tags: ['Angular', 'TypeScript', 'SCSS'],
-      icon: 'fa-solid fa-briefcase',
-      color: '#6366f1',
-      link: '#',
-      github: '#'
+      title: 'AI Election Assistant (Votika)',
+      description: 'AI-enabled platform powered by Vertex AI to help individuals understand the Indian election process. Secured Rank 82/15,460 in Google Promptwar.',
+      tags: ['Angular', 'Node.js', 'GCP', 'Docker', 'Vertex AI'],
+      icon: 'fa-solid fa-check-to-slot',
+      color: '#fbbf24',
+      link: 'https://votika-719327177662.europe-west1.run.app/',
+      github: 'https://github.com/000Sushant/election-assistant'
+    },
+    {
+      title: 'AI Resume Studio',
+      description: 'An OpenAI and Gemini AI powered tool that tailors resumes according to job descriptions and generates customized cover letters.',
+      tags: ['Angular', 'Node.js', 'OpenAI', 'Gemini AI', 'GCP'],
+      icon: 'fa-solid fa-file-pen',
+      color: '#ec4899',
+      link: 'https://resume-studio-719327177662.asia-south1.run.app/',
+      github: 'https://github.com/000Sushant/resume-tailor'
     },
     {
       title: 'Automation Tool (internal tool)',
@@ -47,15 +56,6 @@ export class ProjectsComponent {
       color: '#10b981',
       link: null,
       github: null
-    },
-    {
-      title: 'DailyShell',
-      description: 'A full fledge cyber security blogging site with admin panel for managing content and user interactions.',
-      tags: ['PHP', 'MySQL', 'HTML', 'Bootstrap', 'CSS'],
-      icon: 'fa-solid fa-newspaper',
-      color: '#f59e0b',
-      link: 'https://drive.google.com/drive/folders/1tfoUUbYIVEDlhKovwhxI-KB3lez-Rt4Y?usp=drive_link',
-      github: 'https://github.com/000Sushant/dailyshell'
     },
     {
       title: 'Cyber Security tool',
