@@ -10,6 +10,7 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    basepath: import.meta.env.PROD ? "/sushant-portfolio" : undefined,
   });
 
   return router;
