@@ -1,0 +1,188 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@font-face {
+  font-family: 'Rockybilly';
+  src: url('./assets/fonts/Rockybilly.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EagleHorizon';
+  src: url('./assets/fonts/EagleHorizonP.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sketch: "Architects Daughter", cursive;
+  --font-rockybilly: "Rockybilly", sans-serif;
+  --font-eagle: "EagleHorizon", sans-serif;
+  --font-caveat: "Caveat", cursive;
+  --font-patrick: "Patrick Hand", cursive;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-pencil: var(--pencil);
+  --color-graphite: var(--graphite);
+  --color-ink: var(--ink);
+  --color-pastel-blue: var(--pastel-blue);
+  --color-pastel-yellow: var(--pastel-yellow);
+  --color-pastel-green: var(--pastel-green);
+  --color-pastel-coral: var(--pastel-coral);
+  --color-forest-green: var(--forest-green);
+  --color-pastel-purple: var(--pastel-purple);
+  --color-pastel-peach: var(--pastel-peach);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Sketchbook tokens */
+  --paper: hsl(40, 20%, 98%);
+  --pencil: hsl(285, 4%, 21%);
+  --graphite: hsl(285, 3%, 38%);
+  --ink: hsl(285, 10%, 18%);
+  --pastel-blue: hsl(210, 60%, 93%);
+  --pastel-yellow: hsl(48, 75%, 93%);
+  --pastel-green: hsl(140, 45%, 93%);
+  --pastel-coral: hsl(10, 60%, 92%);
+  --forest-green: hsl(140, 50%, 35%);
+  --pastel-purple: hsl(270, 50%, 93%);
+  --pastel-peach: hsl(30, 65%, 92%);
+
+  --background: var(--paper);
+  --foreground: var(--pencil);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: var(--pencil);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: var(--pencil);
+  --primary: var(--pencil);
+  --primary-foreground: var(--paper);
+  --secondary: hsl(40, 10%, 96%);
+  --secondary-foreground: var(--pencil);
+  --muted: hsl(40, 10%, 96%);
+  --muted-foreground: var(--graphite);
+  --accent: var(--pastel-yellow);
+  --accent-foreground: var(--pencil);
+  --destructive: hsl(3, 70%, 55%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsla(285, 4%, 21%, 0.15);
+  --input: hsla(285, 4%, 21%, 0.20);
+  --ring: hsla(285, 4%, 21%, 0.40);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-pencil);
+    font-family: var(--font-sans);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    :root:not([data-reduced-motion]) html,
+    :root:not([data-reduced-motion]) body,
+    :root:not([data-reduced-motion]) body * {
+      cursor: none !important;
+    }
+    :root:not([data-reduced-motion]) input,
+    :root:not([data-reduced-motion]) textarea,
+    :root:not([data-reduced-motion]) [contenteditable="true"] {
+      cursor: text !important;
+    }
+  }
+}
+
+@utility sketch-border {
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+@utility paper-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+}
+
+@utility notebook-lines {
+  background-image: linear-gradient(var(--color-pencil) 0.5px, transparent 0.5px);
+  background-size: 100% 2.5rem;
+  opacity: 0.03;
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-0.4deg); }
+  50% { transform: rotate(0.4deg); }
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@utility animate-wobble {
+  animation: wobble 4s ease-in-out infinite;
+}
+
+@utility animate-float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.sketch-draw-active path,
+.sketch-draw-active circle,
+.sketch-draw-active rect,
+.sketch-draw-active ellipse {
+  animation: draw var(--draw-duration, 1.6s) ease-out var(--draw-delay, 0s) forwards;
+}
+
