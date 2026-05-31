@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArchitectureSketch, FactoryIcon, ShieldIcon, StackIcon, BrainIcon } from "./sketches";
 import { SketchDraw } from "./SketchDraw";
 import { SkateboardSticker, SurfingSticker, RocketSticker } from "./Stickers";
+import { CelloTape } from "./CelloTape";
 
 const small = [
   {
@@ -69,10 +70,18 @@ export function Projects() {
           <SketchDraw className="md:col-span-2" duration={2.6}>
             <div
               onClick={() => setActiveFlagship(!activeFlagship)}
-              className={`group relative border border-pencil/25 sketch-border p-8 transition-all duration-300 overflow-hidden cursor-pointer ${
+              className={`group relative border border-pencil/25 sketch-border p-8 transition-all duration-300 cursor-pointer ${
                 activeFlagship ? "bg-pastel-yellow/60 scale-[1.01]" : "bg-card"
               } hover:bg-pastel-yellow/60 hover:scale-[1.01]`}
             >
+              <CelloTape
+                className="-top-2 -left-3 w-10 h-4.5 z-20"
+                rotate="-rotate-12"
+              />
+              <CelloTape
+                className="-bottom-2 -right-3 w-10 h-4.5 z-20"
+                rotate="-rotate-12"
+              />
               <div className="absolute top-4 right-6 font-sketch text-pencil/25 text-xs rotate-2">
                 AWS Cloud Modeling
               </div>
@@ -142,6 +151,14 @@ export function Projects() {
                     isActive ? p.color : "bg-card"
                   } ${p.tint} hover:scale-[1.02]`}
                 >
+                  <CelloTape
+                    className="-top-1.5 -left-2.5 w-8 h-3.5 z-20"
+                    rotate="-rotate-12"
+                  />
+                  <CelloTape
+                    className="-bottom-1.5 -right-2.5 w-8 h-3.5 z-20"
+                    rotate="-rotate-12"
+                  />
                   <div className="absolute -top-3 -right-3 bg-paper border border-pencil/25 px-2 py-1 font-sketch text-xs rotate-3 z-10">
                     {p.impact}
                   </div>

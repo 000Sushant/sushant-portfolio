@@ -32,9 +32,11 @@ export function Research() {
       <SwimmingSticker className="left-[2%] top-[20%]" />
       <RobotSticker className="right-[2%] bottom-[20%]" />
       <div className="max-w-5xl mx-auto px-6">
-        <div className="flex items-center gap-4 mb-12">
-          <h2 className="font-sketch text-2xl text-graphite">Research Notes</h2>
-          <div className="h-px flex-1 bg-pencil/10" />
+        <div className="mb-12">
+          <h2 className="text-4xl font-semibold tracking-tight mb-2">Research Notes</h2>
+          <p className="font-sketch text-graphite text-lg">
+            // cybersecurity and systems findings
+          </p>
         </div>
 
         <div className="relative bg-card sketch-border border border-pencil/20 p-8 md:p-12">

@@ -85,9 +85,11 @@ export function Certifications() {
     <section id="certifications" className="relative py-24 z-10 overflow-hidden">
       <PizzaSticker className="left-[2%] top-[40%]" />
       <div className="max-w-5xl mx-auto px-6">
-        <div className="flex items-center gap-4 mb-12">
-          <h2 className="font-sketch text-2xl text-graphite">Certifications</h2>
-          <div className="h-px flex-1 bg-pencil/10" />
+        <div className="mb-12">
+          <h2 className="text-4xl font-semibold tracking-tight mb-2">Certifications</h2>
+          <p className="font-sketch text-graphite text-lg">
+            // industry validated expertise
+          </p>
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">

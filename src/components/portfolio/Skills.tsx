@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SketchDraw } from "./SketchDraw";
 import { BallSticker, CoffeeSticker } from "./Stickers";
+import { CelloTape } from "./CelloTape";
 
 const groups = [
   {
@@ -126,11 +127,12 @@ export function Skills() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {groups.map((g, i) => {
             const isActive = activeCard === i;
+            const tapeRotations = ["-rotate-4", "rotate-3", "-rotate-2", "rotate-5", "-rotate-3", "rotate-2", "-rotate-5", "rotate-4"];
             return (
               <div
                 key={g.title}
                 onClick={() => setActiveCard(isActive ? null : i)}
-                className={`group relative overflow-hidden border border-pencil/20 sketch-border p-6 transition-all duration-300 ${
+                className={`group relative border border-pencil/20 sketch-border p-6 pt-9 transition-all duration-300 ${
                   isActive ? g.color : "bg-card"
                 } ${g.hover} ${
                   isActive
@@ -140,15 +142,19 @@ export function Skills() {
                     : "rotate-[0.5deg]"
                 } hover:rotate-0 hover:scale-[1.02] active:rotate-0`}
               >
+                <CelloTape
+                  className="-top-1.5 left-1/2 -translate-x-1/2 w-12 h-3.5 z-20"
+                  rotate={tapeRotations[i % tapeRotations.length]}
+                />
                 {/* Background whiteboard doodles */}
                 <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
                   {g.bgNotes.map((note, idx) => (
                     <div
                       key={idx}
-                      className={`font-sketch absolute transition-all duration-500 ${note.style} ${
+                      className={`font-sketch absolute transition-all duration-300 transform pointer-events-none ${note.style} ${
                         isActive
-                          ? "text-graphite/35 scale-100"
-                          : "text-graphite/18 group-hover:text-graphite/35 group-active:text-graphite/35"
+                          ? "opacity-35 scale-100 blur-none text-graphite"
+                          : "opacity-0 scale-75 blur-[1px] text-graphite group-hover:opacity-35 group-hover:scale-100 group-hover:blur-none"
                       }`}
                     >
                       {note.text}

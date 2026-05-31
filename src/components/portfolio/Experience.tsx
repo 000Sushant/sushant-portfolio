@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { CompassSticker, HikingSticker } from "./Stickers";
+import { PaperClip } from "./PaperClip";
 
 // Whiteboard-style hand-drawn tech logo components
 function JSLogo() {
@@ -125,9 +126,11 @@ export function Experience() {
       <CompassSticker className="left-[2%] top-[15%]" />
       <HikingSticker className="right-[2%] top-[40%]" />
       <div className="max-w-5xl mx-auto px-6">
-        <div className="flex items-center gap-4 mb-14">
-          <h2 className="font-sketch text-2xl text-graphite">Experience Journal</h2>
-          <div className="h-px flex-1 bg-pencil/10" />
+        <div className="mb-12">
+          <h2 className="text-4xl font-semibold tracking-tight mb-2">Experience Journal</h2>
+          <p className="font-sketch text-graphite text-lg">
+            // engineering and scrum journey
+          </p>
         </div>
 
         <div className="relative space-y-12">
@@ -146,7 +149,7 @@ export function Experience() {
               >
                 <div className="hidden md:block">
                   <span className="font-sketch text-sm text-graphite block">{r.when}</span>
-                  <div className="mt-2 font-sketch text-xs text-pastel-coral rotate-2 inline-block">
+                  <div className="mt-2 font-sketch text-[10px] font-bold text-[hsl(10,75%,45%)] border border-[hsl(10,75%,45%)]/30 px-2 py-0.5 rotate-[-2deg] rounded-xs inline-block bg-[hsl(10,75%,96%)] shadow-[1.5px_2px_0px_rgba(10,75,45,0.15)] uppercase tracking-wider select-none">
                     {r.note}
                   </div>
                 </div>
@@ -157,49 +160,107 @@ export function Experience() {
 
                 <div
                   onClick={() => setActiveRole(isActive ? null : i)}
-                  className={`group relative overflow-hidden border border-pencil/20 sketch-border p-6 transition-all duration-300 cursor-pointer ${
-                    isActive ? (i === 0 ? "bg-pastel-blue" : "bg-pastel-green") : "bg-card"
-                  } ${r.tint} ${
-                    isActive
-                      ? "rotate-0 scale-[1.02]"
-                      : i % 2 === 0
-                      ? "rotate-[-0.5deg]"
-                      : "rotate-[0.5deg]"
-                  } hover:rotate-0 hover:scale-[1.02] active:rotate-0`}
+                  className="group relative cursor-pointer select-none overflow-visible"
                 >
-                  {/* Background sketchy tech logos */}
-                  <div className="hidden md:block absolute inset-0 pointer-events-none select-none overflow-hidden">
-                    {r.bgLogos.map((logoItem, idx) => {
-                      const Logo = logoItem.Logo;
-                      return (
-                        <div
-                          key={idx}
-                          className={`transition-all duration-500 absolute ${logoItem.pos} ${
-                            isActive
-                              ? "text-graphite/35 scale-100 translate-x-0 translate-y-0 opacity-100"
-                              : "text-graphite/18 group-hover:text-graphite/35 group-active:text-graphite/35 " +
-                                logoItem.style
-                          }`}
-                        >
-                          <Logo />
-                        </div>
-                      );
-                    })}
-                  </div>
+                  {/* Bottom layered sheet (Layer 3) */}
+                  <div
+                    className={`absolute inset-0 border border-pencil/15 sketch-border z-0 transition-all duration-300 ease-out origin-top-left pointer-events-none ${
+                      isActive 
+                        ? (i === 0 ? "bg-[hsl(210,45%,78%)]" : "bg-[hsl(140,35%,78%)]") 
+                        : "bg-[hsl(40,15%,90%)] shadow-[1.5px_2px_0px_rgba(0,0,0,0.03)]"
+                    } ${
+                      i === 0
+                        ? "translate-y-2 translate-x-1 rotate-[-0.6deg] group-hover:translate-y-7 group-hover:translate-x-2 group-hover:rotate-[-5deg]"
+                        : "translate-y-2 translate-x-1 rotate-[-0.8deg] group-hover:translate-y-7 group-hover:translate-x-2 group-hover:rotate-[-4deg]"
+                    }`}
+                  />
 
-                  <div className="relative z-10 md:hidden font-sketch text-xs text-graphite mb-1">{r.when}</div>
-                  <h3 className="relative z-10 text-2xl font-medium">{r.title}</h3>
-                  <p className="relative z-10 text-graphite mb-4">
-                    {r.company} — <span className="italic">{r.sub}</span>
-                  </p>
-                  <ul className="relative z-10 space-y-2 text-pencil/80">
-                    {r.bullets.map((b) => (
-                      <li key={b} className="flex gap-3">
-                        <span className="font-sketch text-pencil/40 mt-0.5">·</span>
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Middle layered sheet (Layer 2) */}
+                  <div
+                    className={`absolute inset-0 border border-pencil/18 sketch-border z-10 transition-all duration-300 ease-out origin-top-left pointer-events-none ${
+                      isActive 
+                        ? (i === 0 ? "bg-[hsl(210,50%,86%)]" : "bg-[hsl(140,40%,86%)]") 
+                        : "bg-[hsl(40,15%,94%)] shadow-[1px_1.5px_0px_rgba(0,0,0,0.03)]"
+                    } ${
+                      i === 0
+                        ? "translate-y-1 translate-x-0.5 rotate-[0.4deg] group-hover:translate-y-3.5 group-hover:translate-x-1 group-hover:rotate-[2.5deg]"
+                        : "translate-y-1 translate-x-0.5 rotate-[0.3deg] group-hover:translate-y-3.5 group-hover:translate-x-1 group-hover:rotate-[2deg]"
+                    }`}
+                  />
+
+                  {/* Main top sheet (Layer 1) */}
+                  <div
+                    className={`relative z-20 border border-pencil/20 sketch-border p-6 pt-9 transition-all duration-300 ${
+                      isActive ? (i === 0 ? "bg-pastel-blue" : "bg-pastel-green") : "bg-card shadow-[2px_3px_0px_rgba(0,0,0,0.05)]"
+                    } ${r.tint} ${
+                      isActive
+                        ? "rotate-0 scale-[1.01]"
+                        : i % 2 === 0
+                        ? "rotate-[-0.5deg] group-hover:rotate-0"
+                        : "rotate-[0.5deg] group-hover:rotate-0"
+                    }`}
+                  >
+                    <PaperClip
+                      className="-top-4.5 left-6 w-5 h-12 z-30"
+                      rotate={i === 0 ? "rotate-12" : "-rotate-6"}
+                      color={isActive ? undefined : (i === 0 ? "hsl(210, 45%, 35%)" : "hsl(140, 45%, 35%)")}
+                    />
+                    {/* Background sketchy tech logos */}
+                    <div className="hidden md:block absolute inset-0 pointer-events-none select-none overflow-hidden">
+                      {r.bgLogos.map((logoItem, idx) => {
+                        const Logo = logoItem.Logo;
+                        return (
+                          <div
+                            key={idx}
+                            className={`transition-all duration-500 absolute ${logoItem.pos} ${
+                              isActive
+                                ? "text-graphite/35 scale-100 translate-x-0 translate-y-0 opacity-100"
+                                : "text-graphite/18 group-hover:text-graphite/35 group-active:text-graphite/35 " +
+                                  logoItem.style
+                            }`}
+                          >
+                            <Logo />
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <div className="relative z-10 md:hidden flex flex-wrap items-center gap-2 mb-2">
+                      <span className="font-sketch text-xs text-graphite">{r.when}</span>
+                      <span className="font-sketch text-[9px] font-bold text-[hsl(10,75%,45%)] border border-[hsl(10,75%,45%)]/30 px-1.5 py-0.2 rotate-[1deg] rounded-xs bg-[hsl(10,75%,96%)] uppercase tracking-wide select-none">
+                        {r.note}
+                      </span>
+                    </div>
+                    <h3 className="relative z-10 font-sketch text-xl md:text-2xl font-bold text-pencil leading-tight mb-1">
+                      {r.title}
+                    </h3>
+                    <div className="relative z-10 flex flex-wrap items-center gap-x-2 text-sm text-graphite/90 mb-5 pb-3 border-b border-pencil/10">
+                      <span className="font-bold font-sketch text-pencil">{r.company}</span>
+                      <span className="text-pencil/30 font-light select-none">|</span>
+                      <span className="italic font-sketch text-graphite">{r.sub}</span>
+                    </div>
+                    <ul className="relative z-10 space-y-1.5 text-pencil/85 text-sm md:text-base leading-relaxed">
+                      {r.bullets.map((b) => (
+                        <li key={b} className="flex items-start gap-2.5">
+                          {/* Mini hand-drawn sketch bullet icon arrow */}
+                          <svg
+                            className="w-3.5 h-3.5 mt-1 text-pencil/50 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="3.5"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </motion.div>
             );
